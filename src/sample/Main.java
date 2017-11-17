@@ -28,7 +28,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Gson gson = new GsonBuilder().create();
+        /*Gson gson = new GsonBuilder().create();
         SerialPort serialPort= SerialPort.getCommPorts()[0];
         serialPort.openPort();
         System.out.println("opened");
@@ -54,6 +54,7 @@ public class Main extends Application {
 
             }
         });
-        //launch(args);
+        */
+        launch(args);
     }
 }

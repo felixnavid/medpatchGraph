@@ -1,6 +1,6 @@
 {
-    "timp" : 1234, // seconds from startup
-    "temp" : 3057, // 30.57 *C
-    "humidity" : 33, // in percentage
-    "heart" : 55 // bpm
+    "t" : 1234, // seconds from startup
+    "T" : 3057, // 30.57 *C
+    "H" : 33, // in percentage
+    "h" : 55 // bpm
 }

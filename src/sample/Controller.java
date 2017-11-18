@@ -32,9 +32,10 @@ public class Controller implements Initializable {
             PatchPacket p = new PatchPacket();
             p.t = i*2;
             p.T = i*3+2;
-            //addToChart(p);
-            lineChart.getData().add(p.t, p.T);
+            addToChart(p);
+            //lineChart.getData().add(p.t, p.T);
         }
+        lineChart.getData().add(series);
 
     }
 }

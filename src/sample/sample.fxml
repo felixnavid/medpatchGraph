@@ -31,10 +31,10 @@
          </GridPane.margin></Button>
       <LineChart fx:id="lineChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
         <xAxis>
-          <NumberAxis side = "BOTTOM"  lowerBound="0" autoRanging="true" label="timp"/>
+          <NumberAxis side = "BOTTOM"  lowerBound="0" upperBound="100" label="timp"/>
         </xAxis>
         <yAxis>
-           <NumberAxis side="RIGHT" lowerBound="0" autoRanging="true" label="temperatura"/>
+           <NumberAxis side="RIGHT" lowerBound="0" upperBound="100" label="temperatura"/>
         </yAxis>
       </LineChart>
    </children>

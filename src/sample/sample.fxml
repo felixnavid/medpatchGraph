@@ -48,9 +48,9 @@
             <Insets right="10.0" top="40.0" />
          </GridPane.margin>
       </TextField>
-      <LineChart fx:id="lineChart" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <LineChart fx:id="lineChart" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.valignment="TOP" animated="true" >
          <xAxis>
-            <CategoryAxis side="BOTTOM" />
+            <NumberAxis side="BOTTOM" />
          </xAxis>
          <yAxis>
             <NumberAxis side="LEFT" />

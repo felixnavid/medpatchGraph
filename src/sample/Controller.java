@@ -15,6 +15,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,16 +28,23 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     public LineChart lineChart;
+    public Button healthButton;
+    public Button aquaButton;
+    public Button medicationButton;
     XYChart.Series series = new XYChart.Series();
     int time = 0;
 
 
     public void clickyClacka(ActionEvent actionEvent) {
-
+        ImageView imageView = new ImageView("res\\23758346_1779997648699773_1902865384_n.png");
+            healthButton.setGraphic(imageView);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        ImageView imageView = new ImageView("res\\23758346_1779997648699773_1902865384_n.png");
+        healthButton.setGraphic(imageView);
 
         lineChart.getData().add(series);
         series.getData().add(new XYChart.Data<Number,Number>(1,2));
@@ -63,11 +71,9 @@ public class Controller implements Initializable {
                                     System.out.println(str);
                                     try {
                                         PatchPacket patchPacket = gson.fromJson(str, PatchPacket.class);
-                                        //System.out.println(patchPacket.T);
                                         patchPacket.t++;
                                         patchPacket.T++;
                                         series.getData().add(new XYChart.Data<Number,Number>(patchPacket.t, patchPacket.T));
-                                        //series.getData().add(new XYChart.Data(0,1));
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }

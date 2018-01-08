@@ -7,4 +7,5 @@ public class PatchPacket {
     public int t; // time value
     public int T; // temperature (in XX.XX format)
     public int H; // humidity (in XX format
+    public int C;
 }

@@ -1,37 +1,32 @@
 package sample;
 
 import com.fazecast.jSerialComm.SerialPort;
-import com.fazecast.jSerialComm.SerialPortDataListener;
-import com.fazecast.jSerialComm.SerialPortEvent;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    public LineChart lineChart;
+    public LineChart temperatureChart;
+    public LineChart humidityChart;
+    public LineChart movementChart;
     public Button healthButton;
     public Button aquaButton;
     public Button medicationButton;
-    XYChart.Series series = new XYChart.Series();
+    XYChart.Series temperatureSeries = new XYChart.Series();
+    XYChart.Series humiditySeries = new XYChart.Series();
+    XYChart.Series movementSeries = new XYChart.Series();
     int time = 0;
 
 
@@ -46,9 +41,11 @@ public class Controller implements Initializable {
         ImageView imageView = new ImageView("res\\23758346_1779997648699773_1902865384_n.png");
         healthButton.setGraphic(imageView);
 
-        lineChart.getData().add(series);
-        series.getData().add(new XYChart.Data<Number,Number>(1,2));
+        temperatureChart.getData().add(temperatureSeries);
+        temperatureSeries.getData().add(new XYChart.Data<Number,Number>(1,2));
 
+        humidityChart.getData().add(humiditySeries);
+        movementChart.getData().add(movementSeries);
 
         Gson gson = new GsonBuilder().create();
         SerialPort serialPort= SerialPort.getCommPorts()[0];
@@ -72,8 +69,9 @@ public class Controller implements Initializable {
                                     try {
                                         PatchPacket patchPacket = gson.fromJson(str, PatchPacket.class);
                                         patchPacket.t++;
-                                        patchPacket.T++;
-                                        series.getData().add(new XYChart.Data<Number,Number>(patchPacket.t, patchPacket.T));
+                                        temperatureSeries.getData().add(new XYChart.Data<Number,Number>(patchPacket.t, patchPacket.T/100));
+                                        humiditySeries.getData().add(new XYChart.Data<Number,Number>(patchPacket.t, patchPacket.H/100));
+                                        movementSeries.getData().add(new XYChart.Data<Number,Number>(patchPacket.t, patchPacket.C));
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }

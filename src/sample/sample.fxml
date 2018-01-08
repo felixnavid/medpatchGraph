@@ -21,6 +21,7 @@
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="50.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" />
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" />
    </rowConstraints>
    <children>
       <Button fx:id="healthButton" contentDisplay="GRAPHIC_ONLY" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -43,7 +44,7 @@
             <Insets left="5.0" right="5.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <LineChart fx:id="lineChart" animated="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <LineChart fx:id="temperatureChart" animated="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <xAxis>
             <NumberAxis side="BOTTOM" />
          </xAxis>
@@ -54,9 +55,17 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </LineChart>
-      <LineChart maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <LineChart fx:id="humidityChart" animated="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" GridPane.valignment="TOP">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <NumberAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <LineChart fx:id="movementChart" animated="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" GridPane.valignment="TOP">
+        <xAxis>
+          <NumberAxis side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
